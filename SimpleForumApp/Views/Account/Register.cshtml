@@ -1,0 +1,26 @@
+﻿@using SimpleForumApp.ViewModels
+@model RegisterModel
+
+
+<h1>Регистрация</h1>
+<form asp-controller="Account" asp-action="Register" asp-antiforgery="true">
+    <div class="validation" asp-validation-summary="ModelOnly"> </div>
+    <div>
+        <label asp-for="Email">Введите Email </label>
+        <input type="text" asp-for="Email" />
+        <span asp-validation-for="Email" />
+    </div>
+    <div>
+        <label asp-for="Password">Введите пароль </label>
+        <input type="text" asp-for="Password" />
+        <span asp-validation-for="Password" />
+    </div>
+    <div>
+        <label asp-for="ConfirmPassword">Повторите пароль </label>
+        <input type="text" asp-for="ConfirmPassword" />
+        <span asp-validation-for="ConfirmPassword" />
+    </div>
+    <div>
+        <input type="submit" value="Регистация"/>
+    </div>
+</form>

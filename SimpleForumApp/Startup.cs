@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SimpleForumApp.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
+
 namespace SimpleForumApp
 {
     public class Startup
@@ -23,7 +25,11 @@ namespace SimpleForumApp
         public void ConfigureServices(IServiceCollection services)
         {
             string connection = "Server=(localdb)\\mssqllocaldb; Database = SimpleForumDB; Trusted_Connection = True;";
-            services.AddDbContext<ApplicationContext>(options=>options.UseSqlServer(connection));
+            services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connection));
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+                {
+                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+                });
             services.AddMvc();
         }
 
@@ -41,6 +47,8 @@ namespace SimpleForumApp
             }
 
             app.UseStaticFiles();
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

@@ -1,0 +1,14 @@
+D:\Progr Education\SimpleForum\SimpleForum\SimpleFormTests\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+D:\Progr Education\SimpleForum\SimpleForum\SimpleFormTests\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netcoreapp10.dll
+D:\Progr Education\SimpleForum\SimpleForum\SimpleFormTests\bin\Debug\netcoreapp2.0\xunit.runner.utility.netcoreapp10.dll
+D:\Progr Education\SimpleForum\SimpleForum\SimpleFormTests\bin\Debug\netcoreapp2.0\SimpleFormTests.deps.json
+D:\Progr Education\SimpleForum\SimpleForum\SimpleFormTests\bin\Debug\netcoreapp2.0\SimpleFormTests.runtimeconfig.json
+D:\Progr Education\SimpleForum\SimpleForum\SimpleFormTests\bin\Debug\netcoreapp2.0\SimpleFormTests.runtimeconfig.dev.json
+D:\Progr Education\SimpleForum\SimpleForum\SimpleFormTests\bin\Debug\netcoreapp2.0\SimpleFormTests.dll
+D:\Progr Education\SimpleForum\SimpleForum\SimpleFormTests\bin\Debug\netcoreapp2.0\SimpleFormTests.pdb
+D:\Progr Education\SimpleForum\SimpleForum\SimpleFormTests\obj\Debug\netcoreapp2.0\SimpleFormTests.csprojAssemblyReference.cache
+D:\Progr Education\SimpleForum\SimpleForum\SimpleFormTests\obj\Debug\netcoreapp2.0\SimpleFormTests.csproj.CoreCompileInputs.cache
+D:\Progr Education\SimpleForum\SimpleForum\SimpleFormTests\obj\Debug\netcoreapp2.0\SimpleFormTests.AssemblyInfoInputs.cache
+D:\Progr Education\SimpleForum\SimpleForum\SimpleFormTests\obj\Debug\netcoreapp2.0\SimpleFormTests.AssemblyInfo.cs
+D:\Progr Education\SimpleForum\SimpleForum\SimpleFormTests\obj\Debug\netcoreapp2.0\SimpleFormTests.dll
+D:\Progr Education\SimpleForum\SimpleForum\SimpleFormTests\obj\Debug\netcoreapp2.0\SimpleFormTests.pdb
