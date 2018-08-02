@@ -9,3 +9,14 @@ E:\Progr\web\ASP\SimpleForum\SimpleForumApp\obj\Debug\netcoreapp2.0\SimpleForumA
 E:\Progr\web\ASP\SimpleForum\SimpleForumApp\obj\Debug\netcoreapp2.0\SimpleForumApp.AssemblyInfo.cs
 E:\Progr\web\ASP\SimpleForum\SimpleForumApp\obj\Debug\netcoreapp2.0\SimpleForumApp.dll
 E:\Progr\web\ASP\SimpleForum\SimpleForumApp\obj\Debug\netcoreapp2.0\SimpleForumApp.pdb
+D:\Progr Education\SimpleForum\SimpleForum\SimpleForumApp\bin\Debug\netcoreapp2.0\SimpleForumApp.deps.json
+D:\Progr Education\SimpleForum\SimpleForum\SimpleForumApp\bin\Debug\netcoreapp2.0\SimpleForumApp.runtimeconfig.json
+D:\Progr Education\SimpleForum\SimpleForum\SimpleForumApp\bin\Debug\netcoreapp2.0\SimpleForumApp.runtimeconfig.dev.json
+D:\Progr Education\SimpleForum\SimpleForum\SimpleForumApp\bin\Debug\netcoreapp2.0\SimpleForumApp.dll
+D:\Progr Education\SimpleForum\SimpleForum\SimpleForumApp\bin\Debug\netcoreapp2.0\SimpleForumApp.pdb
+D:\Progr Education\SimpleForum\SimpleForum\SimpleForumApp\obj\Debug\netcoreapp2.0\SimpleForumApp.csprojAssemblyReference.cache
+D:\Progr Education\SimpleForum\SimpleForum\SimpleForumApp\obj\Debug\netcoreapp2.0\SimpleForumApp.csproj.CoreCompileInputs.cache
+D:\Progr Education\SimpleForum\SimpleForum\SimpleForumApp\obj\Debug\netcoreapp2.0\SimpleForumApp.AssemblyInfoInputs.cache
+D:\Progr Education\SimpleForum\SimpleForum\SimpleForumApp\obj\Debug\netcoreapp2.0\SimpleForumApp.AssemblyInfo.cs
+D:\Progr Education\SimpleForum\SimpleForum\SimpleForumApp\obj\Debug\netcoreapp2.0\SimpleForumApp.dll
+D:\Progr Education\SimpleForum\SimpleForum\SimpleForumApp\obj\Debug\netcoreapp2.0\SimpleForumApp.pdb

@@ -19,7 +19,7 @@ namespace SimpleForumApp.Models
         public int? RoleId { get; set; }
         public Role Role { get; set; }
 
-        public List<Post> Posts;
+        public List<Post> Posts { get; set; }
 
         
     }
