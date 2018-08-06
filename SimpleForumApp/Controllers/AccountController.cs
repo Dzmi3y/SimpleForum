@@ -50,7 +50,8 @@ namespace SimpleForumApp.Controllers
         [Authorize(Roles = "Admin, User")] 
         public IActionResult Index()
         {
-            if (ViewData["role"].ToString() == "User")
+            
+            if (User.IsInRole("User"))
             {
                 return Content("You user");
             }
@@ -112,6 +113,8 @@ namespace SimpleForumApp.Controllers
         }
 
 
+        
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -136,6 +139,13 @@ namespace SimpleForumApp.Controllers
         }
 
 
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login","Account");
+        }
 
         private async Task Autenticate(User currentUser)
         {

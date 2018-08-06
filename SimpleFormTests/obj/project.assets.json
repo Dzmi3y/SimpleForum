@@ -5713,23 +5713,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dzmitry\\.nuget\\packages\\": {},
+    "C:\\Users\\HomeComp\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Progr Education\\SimpleForum\\SimpleForum\\SimpleFormTests\\SimpleFormTests.csproj",
+      "projectUniqueName": "E:\\Progr\\web\\ASP\\SimpleForum\\SimpleFormTests\\SimpleFormTests.csproj",
       "projectName": "SimpleFormTests",
-      "projectPath": "D:\\Progr Education\\SimpleForum\\SimpleForum\\SimpleFormTests\\SimpleFormTests.csproj",
-      "packagesPath": "C:\\Users\\Dzmitry\\.nuget\\packages\\",
-      "outputPath": "D:\\Progr Education\\SimpleForum\\SimpleForum\\SimpleFormTests\\obj\\",
+      "projectPath": "E:\\Progr\\web\\ASP\\SimpleForum\\SimpleFormTests\\SimpleFormTests.csproj",
+      "packagesPath": "C:\\Users\\HomeComp\\.nuget\\packages\\",
+      "outputPath": "E:\\Progr\\web\\ASP\\SimpleForum\\SimpleFormTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Dzmitry\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\HomeComp\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
