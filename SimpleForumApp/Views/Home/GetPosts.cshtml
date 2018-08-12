@@ -1,0 +1,26 @@
+﻿@using SimpleForumApp.Models
+@model IEnumerable<Post>
+@{
+    Layout = null;
+}
+
+@{
+
+    string currentBackgroundColor = "bg-primary";
+
+    @foreach (Post CurrentPost in Model)
+    {
+
+        <div class="@currentBackgroundColor ">
+            <label>Название: @CurrentPost.Title  </label><br />
+            <label>Дата: @CurrentPost.Date </label><br />
+            <label>Email: @CurrentPost.User.Email </label><br />
+            <Label>Текст:  </Label><br />
+            <p> @CurrentPost.Text</p>
+        </div>
+
+        currentBackgroundColor = currentBackgroundColor == "bg-primary" ? currentBackgroundColor = "bg-success" : currentBackgroundColor = "bg-primary";
+
+
+    }
+}

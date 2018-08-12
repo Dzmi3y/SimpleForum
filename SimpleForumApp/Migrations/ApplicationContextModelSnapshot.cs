@@ -25,6 +25,8 @@ namespace SimpleForumApp.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<DateTime>("Date");
+
                     b.Property<int?>("PostId");
 
                     b.Property<int?>("PostId1");
@@ -48,6 +50,8 @@ namespace SimpleForumApp.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("Date");
 
                     b.Property<string>("Text");
 

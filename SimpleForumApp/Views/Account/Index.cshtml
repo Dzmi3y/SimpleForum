@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewData["Title"] = "Личный кабинет";
+}
+
+<div class="row">
+    <div id="AddPostDiv" class="col-md-6">
+        <form id="AddPost" asp-action="AddPost" asp-controller="Account" method="post" data-ajax-success="ClearForm" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#AllPosts">
+            <input name="Title" placeholder="Название" class="form-control FieldsForm" autocomplete="off" />
+            <input name="Text" placeholder="Текст" class="form-control FieldsForm" autocomplete="off" />
+            <input id="SubmitButton" type="submit" value="Опубликовать" class="btn btn-default" />
+        </form>
+    </div>
+    <br />
+    <div class="text-right col-md-6 ">
+            <input id="deletePostsButton" type="button" class="btn btn-danger " value="Удалить выбранные посты" />
+        
+    </div>
+    <div id="AllPosts" class="col-md-6">
+
+    </div>
+
+
+</div>
+
+<script src="/lib/jquery/dist/jquery.js"></script>
+<script type="text/javascript">
+    console.log("go!!!!!");
+    $("#AllPosts").load("Account/GetPostsCurrentUser");
+    console.log("ok!!! go!!!!!");
+
+
+
+    function ClearForm() {
+        $(".FieldsForm").val("");
+    }
+
+            
+
+    function SendIdsPostForDelete() {
+        var arrayPostsForDelete = $(".deleteMe");
+
+        var jsonListIdForDelete = [];
+
+        for (var i in arrayPostsForDelete) {
+            if (arrayPostsForDelete[i].id == undefined) {
+                break;
+            }
+            jsonListIdForDelete.push(arrayPostsForDelete[i].id.replace("post", ""));
+        }
+
+
+        $.ajax({
+            url: "/Account/DeletePosts",
+            type: "post",
+            data: { "data": jsonListIdForDelete },
+            success: function (data) {
+                if (data) {
+                    $("#AllPosts").load("Account/GetPostsCurrentUser");
+                }
+            }
+        });
+    }
+
+    $("#deletePostsButton").click(SendIdsPostForDelete);
+</script>

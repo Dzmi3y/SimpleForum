@@ -12,7 +12,6 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 
 
-
 namespace SimpleForumApp.Controllers
 {
     public class AccountController : Controller
@@ -47,21 +46,64 @@ namespace SimpleForumApp.Controllers
             }
         }
 
+
+        public JsonResult DeletePosts(IEnumerable<int> data)
+        {
+            // contextDatabase.Posts.Join(data,p=>(p.Id==)))
+
+            IEnumerable<Post> postForDeleted = from p in contextDatabase.Posts
+                    join d in data on p.Id equals d
+                    select p;
+            contextDatabase.RemoveRange(postForDeleted);
+            contextDatabase.SaveChanges();
+
+
+            return Json(true);
+        }
+
         [Authorize(Roles = "Admin, User")] 
         public IActionResult Index()
         {
-            
-            if (User.IsInRole("User"))
-            {
-                return Content("You user");
-            }
-            else
-            {
-                return Content("You admin");
-            }
-        }
 
+            return View();
+        }
+ 
+
+        [HttpPost]
+        public IActionResult AddPost(string text, string title)
+        {
+            Post addPost = new Post();
+            addPost.Title = title;
+            addPost.Text = text;
+            addPost.User = GetCurrentUser();
+            addPost.Date = DateTime.Now;
+
+            contextDatabase.Posts.Add(addPost);
+
+            IEnumerable<Post> AllPostsCurrentUser = GetCurrentUser().Posts;
+
+             contextDatabase.SaveChanges();
+
+            return PartialView("GetPostsCurrentUser", AllPostsCurrentUser);
+            
+        }
+         
         
+        public IActionResult GetPostsCurrentUser()
+        {
+            //JsonResult categoryJson = Json("lol");
+
+            string currentUserEmail = User.FindFirstValue(ClaimsIdentity.DefaultNameClaimType);
+            IEnumerable<Post> AllPostsCurrentUser = contextDatabase.Posts.Include(p=>p.User).Where(p=>p.User.Email==currentUserEmail);  //GetCurrentUser().Posts;
+
+            //TempData["posts"] = AllPostsCurrentUser;
+
+
+            // string s = JsonConvert.SerializeObject(AllPostsCurrentUser);
+            //List<string> s = new List<string> { "a", "b", "c" };
+            // return RedirectToAction("GetPosts", "Home", new RouteValueDictionary(posts));
+           return PartialView(AllPostsCurrentUser);
+        }
 
 
         [HttpGet]
@@ -113,9 +155,6 @@ namespace SimpleForumApp.Controllers
         }
 
 
-        
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginModel model)
@@ -161,5 +200,11 @@ namespace SimpleForumApp.Controllers
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
         }
 
+        private User GetCurrentUser()
+        {
+            string currentUserEmail = User.FindFirstValue(ClaimsIdentity.DefaultNameClaimType);
+            User currentUser = contextDatabase.Users.Include(u => u.Posts).FirstOrDefault(u => u.Email == currentUserEmail);
+            return currentUser;
+        }
     }
 }

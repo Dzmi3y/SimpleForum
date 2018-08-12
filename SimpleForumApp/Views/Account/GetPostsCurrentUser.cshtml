@@ -1,0 +1,72 @@
+﻿@using SimpleForumApp.Models
+@model IEnumerable<Post>
+@{
+    Layout = null;
+}
+
+@{
+
+    string currentBackgroundColor = "bg-primary";
+
+
+    string postId = "";
+
+    @foreach (Post CurrentPost in Model)
+    {
+
+        postId = "post" + CurrentPost.Id;
+
+        <div id="@postId" class="@currentBackgroundColor post">
+            <label>Название: @CurrentPost.Title  </label><br />
+            <label>Дата: @CurrentPost.Date </label><br />
+            <label>Email: @CurrentPost.User.Email </label><br />
+            <Label>Текст:  </Label><br />
+            <p> @CurrentPost.Text</p>
+        </div>
+
+
+        currentBackgroundColor = currentBackgroundColor == "bg-primary" ? currentBackgroundColor = "bg-success" : currentBackgroundColor = "bg-primary";
+
+
+    }
+}
+<script type="text/javascript">
+    $(".post").click(function () {
+        var boolFlag = $(this).hasClass("bg-danger")
+
+        if (boolFlag) {
+            var bgPrimaryFlag = $(this).hasClass("last-bg-primary");
+            $(this).removeClass("bg-danger deleteMe");
+
+            if (bgPrimaryFlag) {
+                $(this).removeClass("last-bg-primary");
+                $(this).addClass("bg-primary");
+            }
+            else {
+                $(this).removeClass("last-bg-success");
+                $(this).addClass("bg-success");
+            }
+
+        }
+
+        else {
+            var bgPrimaryFlag = $(this).hasClass("bg-primary");
+            if (bgPrimaryFlag) {
+                $(this).removeClass("bg-primary");
+                $(this).addClass("last-bg-primary");
+            }
+            else {
+                $(this).removeClass("bg-success");
+                $(this).addClass("last-bg-success");
+            }
+
+
+            $(this).addClass("bg-danger deleteMe");
+        }
+
+        console.log(boolFlag);
+
+
+    });
+
+</script>

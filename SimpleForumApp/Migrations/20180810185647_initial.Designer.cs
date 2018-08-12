@@ -11,8 +11,8 @@ using System;
 namespace SimpleForumApp.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20180802060202_Initial")]
-    partial class Initial
+    [Migration("20180810185647_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -25,6 +25,8 @@ namespace SimpleForumApp.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("Date");
 
                     b.Property<int?>("PostId");
 
@@ -49,6 +51,8 @@ namespace SimpleForumApp.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("Date");
 
                     b.Property<string>("Text");
 
