@@ -3,6 +3,10 @@
   "private": true,
   "dependencies": {
     "jquery": "*",
-    "jquery.unobtrusive-ajax": "v3.2.5"
+    "jquery.unobtrusive-ajax": "v3.2.5",
+    "bootstrap": "v4.1.3"
+  },
+  "resolutions": {
+    "bootstrap": "v4.1.3"
   }
 }

@@ -1,0 +1,14 @@
+﻿@using SimpleForumApp.Models
+@model IEnumerable<Commentary>
+@{
+    Layout = null;
+}
+
+@foreach (Commentary currentComment in Model)
+{
+    string CurrentCommentId = "commentary" + currentComment.Id;
+    <div id="@CurrentCommentId">
+        <b>Email: </b>@currentComment.User.Email <b>Дата: </b>@currentComment.Date <br />
+        <b>Текст:</b><br /> @currentComment.Text
+    </div><br />
+}

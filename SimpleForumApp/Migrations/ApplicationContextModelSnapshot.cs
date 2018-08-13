@@ -29,8 +29,6 @@ namespace SimpleForumApp.Migrations
 
                     b.Property<int?>("PostId");
 
-                    b.Property<int?>("PostId1");
-
                     b.Property<string>("Text");
 
                     b.Property<int?>("UserId");
@@ -38,8 +36,6 @@ namespace SimpleForumApp.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("PostId");
-
-                    b.HasIndex("PostId1");
 
                     b.HasIndex("UserId");
 
@@ -98,13 +94,9 @@ namespace SimpleForumApp.Migrations
 
             modelBuilder.Entity("SimpleForumApp.Models.Commentary", b =>
                 {
-                    b.HasOne("SimpleForumApp.Models.User", "Post")
-                        .WithMany()
-                        .HasForeignKey("PostId");
-
-                    b.HasOne("SimpleForumApp.Models.Post")
+                    b.HasOne("SimpleForumApp.Models.Post", "Post")
                         .WithMany("Commentaries")
-                        .HasForeignKey("PostId1");
+                        .HasForeignKey("PostId");
 
                     b.HasOne("SimpleForumApp.Models.User", "User")
                         .WithMany()

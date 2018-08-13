@@ -1,0 +1,11 @@
+E:\Progr\web\ASP\SimpleForum\SimpleForumApp\bin\Release\netcoreapp2.0\SimpleForumApp.deps.json
+E:\Progr\web\ASP\SimpleForum\SimpleForumApp\bin\Release\netcoreapp2.0\SimpleForumApp.runtimeconfig.json
+E:\Progr\web\ASP\SimpleForum\SimpleForumApp\bin\Release\netcoreapp2.0\SimpleForumApp.runtimeconfig.dev.json
+E:\Progr\web\ASP\SimpleForum\SimpleForumApp\bin\Release\netcoreapp2.0\SimpleForumApp.dll
+E:\Progr\web\ASP\SimpleForum\SimpleForumApp\bin\Release\netcoreapp2.0\SimpleForumApp.pdb
+E:\Progr\web\ASP\SimpleForum\SimpleForumApp\obj\Release\netcoreapp2.0\SimpleForumApp.csprojAssemblyReference.cache
+E:\Progr\web\ASP\SimpleForum\SimpleForumApp\obj\Release\netcoreapp2.0\SimpleForumApp.csproj.CoreCompileInputs.cache
+E:\Progr\web\ASP\SimpleForum\SimpleForumApp\obj\Release\netcoreapp2.0\SimpleForumApp.AssemblyInfoInputs.cache
+E:\Progr\web\ASP\SimpleForum\SimpleForumApp\obj\Release\netcoreapp2.0\SimpleForumApp.AssemblyInfo.cs
+E:\Progr\web\ASP\SimpleForum\SimpleForumApp\obj\Release\netcoreapp2.0\SimpleForumApp.dll
+E:\Progr\web\ASP\SimpleForum\SimpleForumApp\obj\Release\netcoreapp2.0\SimpleForumApp.pdb

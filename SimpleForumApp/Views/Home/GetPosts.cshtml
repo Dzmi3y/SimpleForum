@@ -8,19 +8,77 @@
 
     string currentBackgroundColor = "bg-primary";
 
-    @foreach (Post CurrentPost in Model)
-    {
 
-        <div class="@currentBackgroundColor ">
-            <label>Название: @CurrentPost.Title  </label><br />
-            <label>Дата: @CurrentPost.Date </label><br />
-            <label>Email: @CurrentPost.User.Email </label><br />
-            <Label>Текст:  </Label><br />
-            <p> @CurrentPost.Text</p>
-        </div>
+    string postId = "";
+    string commentsId = "";
+    string newCommentDivId = "";
+    string newCommenTextFieldId = "";
+    string newCommentSendButtonId = "";
+    <div class="col-md-6" style="background-color:black">
+        @foreach (Post CurrentPost in Model)
+        {
 
-        currentBackgroundColor = currentBackgroundColor == "bg-primary" ? currentBackgroundColor = "bg-success" : currentBackgroundColor = "bg-primary";
+            postId = "post" + CurrentPost.Id;
+            commentsId = "commentsForPost" + CurrentPost.Id;
+            newCommentDivId = "newCommentDivForPost" + CurrentPost.Id;
+            newCommenTextFieldId = "newCommentTextFieldForPost" + CurrentPost.Id;
+            newCommentSendButtonId = "newCommentSendButtonForPost" + CurrentPost.Id;
+            <div class="rounded" style="background-color:darkgrey">
+                <div>
+                    <div id="@postId" class="@currentBackgroundColor  post">
+                        <label>Название: @CurrentPost.Title  </label><br />
+                        <label>Дата: @CurrentPost.Date </label><br />
+                        <label>Email: @CurrentPost.User.Email </label><br />
+                        <Label>Текст:  </Label><br />
+                        <p> @CurrentPost.Text</p>
+                    </div>
+                    <div class="bg-info">
+                        <Label>Коментарии  </Label><br />
+                        <div id="@commentsId">
+                            @Html.Partial("LoadComments", CurrentPost.Commentaries)
+                        </div>
+                    </div>
+                </div>
+                @if (User.IsInRole("User") || User.IsInRole("Admin"))
+                {
+                    <div id="@newCommentDivId">
+                        <input id="@newCommenTextFieldId" type="text" class="form-control" />
+                        <input id="@newCommentSendButtonId" class="btn btn-default SendNewComment" type="button" value="Отправить" />
+                    </div>
+                }
+
+            </div>
+            <br/>
+
+            currentBackgroundColor = currentBackgroundColor == "bg-primary" ? currentBackgroundColor = "bg-success" : currentBackgroundColor = "bg-primary";
 
 
-    }
+        }
+
+    </div>
+}
+
+@if (User.IsInRole("User") || User.IsInRole("Admin"))
+{
+    @*<script src="/lib/jquery/dist/jquery.js"></script>*@
+    <script type="text/javascript">
+        $(".SendNewComment").click(function () {
+            console.log("ccccllliiikkk");
+            var idComment = this.id.replace("newCommentSendButtonForPost", "");
+            console.log(idComment);
+            var textNewComment = $("#newCommentTextFieldForPost" + idComment)[0].value;
+            console.log(textNewComment);
+            $.ajax({
+                url: "/Home/AddComment",
+                type: "post",
+                data: { "text": textNewComment, "idPost": idComment },
+                success: function (data) {
+                    if (data) {
+                        $("#commentsForPost" + idComment).load("/Home/LoadComments", { "idPost": idComment });
+                    }
+                }
+
+            });
+        });
+    </script>
 }

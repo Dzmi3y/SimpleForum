@@ -1,68 +1,18 @@
 ﻿@model IEnumerable<string>
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Главная";
 }
 
-
-
-<form id="FormAddPost" action="/Home/AddPost" method="post" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#results">
-    <input type="text" name="message" class="form-control" />
-    <input type="submit" value="Send" class="btn btn-default" />
-</form>
-
-    <input id="zh" type="button" value="zhopa" class="btn btn-default" />
-
-
-<div id="results"></div>
-@*<div id="result">@Html.Partial("GetPosts", Model)</div>*@
+<div class="  container center-block " >
+    <div id="AllPosts" class="center-block  container ">
+        ЗАГРУЗКА
+    </div>
+</div>
 
 <script src="/lib/jquery/dist/jquery.js"></script>
 <script type="text/javascript">
-
-    //$("#FormAddPost").ajaxForm(
-    //   { url: '/Home/AddPost', type: 'post', })
-
     console.log("go!!!!!");
-    $("#results").load("Home/About");
+    $("#AllPosts").load("/Home/GetPosts");
     console.log("ok!!! go!!!!!");
-    
-
-    $("#zh").bind("click", function () {
-        console.log("zhhhhh");
-        $.ajax({
-            type: "POST",
-            url: "/Home/AddPost",
-            data: { "message":"zhooopa"},
-            success: function (data)
-            {
-                console.log(data);
-                $("#results").load("Home/GetPosts", data);
-                
-                //$("$results")[0].innerHTML = data;
-            }
-        });
-
-
-    })
-
-    //$("#FormAddPost").submit(function (e) {
-
-    //    console.log("biiinndd 2222!!");
-    //    var form = $(this);
-    //    var url = form.attr('action');
-
-    //    $.ajax({
-    //        type: "POST",
-    //        url: "/Home/AddPost",
-    //        data: form.serialize(), // serializes the form's elements.
-    //        success: function (data)
-    //        {
-    //            alert(data); // show response from the php script.
-    //        }
-    //    });
-
-    //    e.preventDefault(); // avoid to execute the actual submit of the form.
-    //});
-
-
 </script>
+
