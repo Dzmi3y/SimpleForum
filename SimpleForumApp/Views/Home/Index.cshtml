@@ -3,16 +3,14 @@
     ViewData["Title"] = "Главная";
 }
 
-<div class="  container center-block " >
-    <div id="AllPosts" class="center-block  container ">
+<div class="container center-block ">
+    <div id="AllPosts" class="center-block ">
         ЗАГРУЗКА
     </div>
 </div>
 
-<script src="/lib/jquery/dist/jquery.js"></script>
+
 <script type="text/javascript">
-    console.log("go!!!!!");
     $("#AllPosts").load("/Home/GetPosts");
-    console.log("ok!!! go!!!!!");
 </script>
 

@@ -51,10 +51,20 @@ namespace SimpleForumApp.Controllers
         {
             // contextDatabase.Posts.Join(data,p=>(p.Id==)))
 
-            IEnumerable<Post> postForDeleted = from p in contextDatabase.Posts
-                    join d in data on p.Id equals d
-                    select p;
-            contextDatabase.RemoveRange(postForDeleted);
+            IEnumerable<Post> postsForDeleted = from p in contextDatabase.Posts
+                                                join d in data on p.Id equals d
+                                                select p;
+
+            IEnumerable<Commentary> comentariesForDeleted = from c in contextDatabase.Commentaries
+                                                     join d in data on c.PostId equals d
+                                                     select c;
+
+
+
+
+
+            contextDatabase.RemoveRange(comentariesForDeleted);
+            contextDatabase.RemoveRange(postsForDeleted);
             contextDatabase.SaveChanges();
 
 
