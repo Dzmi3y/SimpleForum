@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.Generic;   
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -14,21 +15,21 @@ namespace SimpleForumApp.Controllers
 {
     public class HomeController : Controller
     {
-        private ApplicationContext contextDatabase;
+        public IApplicationContext contextDatabase { get; private set; }
         private List<string> AllText;
-        public HomeController(ApplicationContext contextDatabase)
+
+        
+        public HomeController(IApplicationContext contextDatabase)
         {
             AllText = new List<string>();
             this.contextDatabase = contextDatabase;
         }
 
-
+        
         public IActionResult Index()
         {
 
-            AllText.Add("Hello");
-            AllText.Add("World");
-            return View(AllText);
+            return View();
         }
 
         public IActionResult About()
@@ -51,12 +52,6 @@ namespace SimpleForumApp.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public JsonResult AddPost(string message)
-        {
-
-            return Json(new { data = new List<string> { "lol", "kek", message } });
-        }
-
         public IActionResult LoadComments(int idPost)
         {
             IEnumerable<Commentary> commentaries = contextDatabase.Commentaries.Include(c => c.Post).Include(c => c.User).Where(c => c.PostId == idPost);
@@ -73,7 +68,7 @@ namespace SimpleForumApp.Controllers
             NewComment.Text = text;
             NewComment.User = currentUser;
             NewComment.Post = contextDatabase.Posts.FirstOrDefault(p => p.Id == idPost);
-            // здесь дето ошибка
+            
             contextDatabase.Commentaries.Add(NewComment);
             contextDatabase.SaveChanges();
 

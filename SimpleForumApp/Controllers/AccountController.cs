@@ -74,7 +74,7 @@ namespace SimpleForumApp.Controllers
         [Authorize(Roles = "Admin, User")] 
         public IActionResult Index()
         {
-
+            
             return View();
         }
  
@@ -101,17 +101,9 @@ namespace SimpleForumApp.Controllers
         
         public IActionResult GetPostsCurrentUser()
         {
-            //JsonResult categoryJson = Json("lol");
-
             string currentUserEmail = User.FindFirstValue(ClaimsIdentity.DefaultNameClaimType);
             IEnumerable<Post> AllPostsCurrentUser = contextDatabase.Posts.Include(p=>p.User).Where(p=>p.User.Email==currentUserEmail);  //GetCurrentUser().Posts;
 
-            //TempData["posts"] = AllPostsCurrentUser;
-
-
-            // string s = JsonConvert.SerializeObject(AllPostsCurrentUser);
-            //List<string> s = new List<string> { "a", "b", "c" };
-            // return RedirectToAction("GetPosts", "Home", new RouteValueDictionary(posts));
            return PartialView(AllPostsCurrentUser);
         }
 
@@ -212,6 +204,7 @@ namespace SimpleForumApp.Controllers
 
         private User GetCurrentUser()
         {
+           
             string currentUserEmail = User.FindFirstValue(ClaimsIdentity.DefaultNameClaimType);
             User currentUser = contextDatabase.Users.Include(u => u.Posts).FirstOrDefault(u => u.Email == currentUserEmail);
             return currentUser;
