@@ -11,7 +11,7 @@ using System;
 namespace SimpleForumApp.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20180813110124_initial")]
+    [Migration("20180819081903_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
